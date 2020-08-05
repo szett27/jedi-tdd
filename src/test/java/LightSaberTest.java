@@ -35,6 +35,38 @@ public class LightSaberTest {
         assertEquals(actual, expected);
     }
 
+    @Test
+    public void getTheRemainingMinutes(){
+        LightSaber lightSaber = new LightSaber(1L);
+        float actual = lightSaber.getRemainingMinutes();
+        float expected = 300f;
+
+        assertEquals(actual, expected);
+
+    }
+
+    @Test
+    public void useMinutesFromTheLightSaber(){
+        LightSaber lightSaber = new LightSaber(1L);
+        lightSaber.use(30.0f);
+        float actual = lightSaber.getRemainingMinutes();
+        float expected = 285f;
+        assertEquals(actual, expected);
+
+    }
+
+
+    @Test
+    public void ensureLSCanReCharge(){
+        LightSaber lightSaber = new LightSaber(1L);
+        lightSaber.use(30.0f);
+        lightSaber.recharge();
+        float actual = lightSaber.getCharge();
+        float expected = 100.0f;
+        assertEquals(actual, expected);
+
+    }
+
 
 
 }
